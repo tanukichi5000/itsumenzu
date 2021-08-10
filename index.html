@@ -48,6 +48,19 @@
 </tr></tbody></table></center></center></center></body></html>
 <form>
 自由なコメント欄（他人を誹謗中傷するような発言はやめましょう。見つけ次第、コメントをこちらより削除させて頂きます。）<br>
-<textarea name="kanso" rows="4" cols="40">ここにコメントを記入してください。</textarea><br>
-<input type="submit" value="送信"><input type="reset" value="リセット">
-</form>
+<!--ここから掲示板開始!-->
+ <form action="s.php" method="post"><table><tr>
+ <th>名前</th><td><input type="text" name="name" size="20"></td></tr><tr>
+ <th>コメント</th><td><textarea name="txt" rows="2" cols="20" tabindex="0"></textarea></td></tr>
+ </table><input type="submit" value="投稿"></form>
+ <br>
+ <?php
+ $log = 5; //表示するログの数初期は、5
+ $fp = fopen('log.html', 'r');
+ for($i=0; $i < $log; $i++){
+ $fps = fgets($fp);
+ print $fps;
+ }
+ ?>
+ <!--ここから掲示板終了-->
+
